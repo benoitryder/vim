@@ -7,6 +7,9 @@ if exists("b:current_syntax")
   finish
 endif
 
+let s:cpo_save = &cpo
+set cpo&vim
+
 " Comment line
 syn match  hlsplaylistComment  "^#\(EXT\)\@!.*$"
 " Segment URL
@@ -110,5 +113,8 @@ hi def link hlsplaylistValueDateTime        Constant
 
 
 let b:current_syntax = "hlsplaylist"
+
+let &cpo = s:cpo_save
+unlet s:cpo_save
 
 " vim: sts=2 sw=2 et
